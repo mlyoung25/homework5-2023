@@ -48,13 +48,13 @@ a:link, a:visited{
     border-radius: 50px 50px 0 0;
 }
 
-/* fix this border */
-
 .card {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
     width: 450px;
+    border: solid 2px #45ADAD;
+    border-radius: 50px 50px 0 0;
 }
 
 .pricing{
@@ -80,17 +80,16 @@ a:link, a:visited{
     header{
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-items: flex-start;
     }
 
-    /* fix the alignment to right */
+    nav{
+        width: 100%;
+    }
     .nav_links {
         text-align: right;
-        align-items: right;
         display: flex;
-        flex-grow: 2;
         flex-direction: row;
-        align-self: flex-end;
         justify-content: flex-end;
     }
 
@@ -108,10 +107,9 @@ a:link, a:visited{
         align-items: center;
     }
 
-    /* fix not staying  */
-    header:first{
+    body > header:first-of-type{
+        width: 100%;
         position: fixed;
-
     }
 
 }
@@ -125,26 +123,38 @@ a:link, a:visited{
 
 @media print {
     #logo {
-        width: 475px;
+        width: 475px;   
     }
 
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-image: none;
+        background-color: #f1f1f1;
     }
 
-    /* fix this idk why it its not streched */
+    header{
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    nav{
+        width: 100%;
+    }
 
     .nav_links{
+        width: 100%;
         display: flex;
         flex-basis: 100%;
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-around;
     }
 
     .pricing{
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         align-items: flex-end;
     }
 
@@ -164,5 +174,7 @@ a:link, a:visited{
         display: none;
     }
     
-    /* no idea how to add thumbs up*/
+    .card li:nth-child(2)::after{
+        content: "👍";
+    }
 }
